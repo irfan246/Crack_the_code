@@ -5,8 +5,9 @@ class ButtonPilihMode extends StatelessWidget {
   final String ButtonTextDifficulty;
   final action;
 
-  ButtonPilihMode(
-      {required this.ButtonTextMode,
+  const ButtonPilihMode(
+      {super.key,
+      required this.ButtonTextMode,
       required this.action,
       required this.ButtonTextDifficulty});
 

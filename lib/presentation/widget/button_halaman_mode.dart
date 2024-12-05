@@ -4,7 +4,8 @@ class ButtonHalamanMode extends StatelessWidget {
   final String buttonText;
   final action;
 
-  ButtonHalamanMode({required this.buttonText, required this.action});
+  const ButtonHalamanMode(
+      {super.key, required this.buttonText, required this.action});
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(

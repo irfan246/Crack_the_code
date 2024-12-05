@@ -13,11 +13,19 @@ class HalamanMode2 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ButtonHalamanMode(buttonText: 'Penjumlahan', action: () {}),
+            ButtonHalamanMode(
+                buttonText: 'Penjumlahan',
+                action: () {
+                  Navigator.pushNamed(context, '/levelPenjumlahan');
+                }),
             const SizedBox(
               height: 40,
             ),
-            ButtonHalamanMode(buttonText: 'Perkalian', action: () {}),
+            ButtonHalamanMode(
+                buttonText: 'Perkalian',
+                action: () {
+                  Navigator.pushNamed(context, '/levelPerkalian');
+                }),
           ],
         ),
       ),

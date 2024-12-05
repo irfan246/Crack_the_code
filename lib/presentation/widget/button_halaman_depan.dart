@@ -4,7 +4,8 @@ class ButtonHalamanDepan extends StatelessWidget {
   final String buttonText;
   final action;
 
-  ButtonHalamanDepan({required this.buttonText, required this.action});
+  const ButtonHalamanDepan(
+      {super.key, required this.buttonText, required this.action});
 
   @override
   Widget build(BuildContext context) {

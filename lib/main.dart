@@ -1,3 +1,5 @@
+import '../application/bloc_mode_1_penjumlahan/penjumlahan_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../routes/route.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +13,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: new ThemeData(scaffoldBackgroundColor: const Color(0xFF522258)),
-      title: 'Crack The Code',
-      initialRoute: '/',
-      onGenerateRoute: AppRouter().generateRoute,
+    return BlocProvider(
+      create: (_) => summationCrackTheCodeBloc()..add(LoadSafeEvent()),
+      child: MaterialApp(
+        theme: ThemeData(scaffoldBackgroundColor: const Color(0xFF522258)),
+        initialRoute: '/',
+        onGenerateRoute: AppRouter().generateRoute,
+      ),
     );
   }
 }
