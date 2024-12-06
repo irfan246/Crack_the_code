@@ -1,30 +1,30 @@
-part of 'penjumlahan_bloc.dart';
+part of 'perkalian_bloc.dart';
 
-abstract class PenjumlahanState extends Equatable {
+abstract class PerkalianState extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-class PenjumlahanInitialState extends PenjumlahanState {}
+class PerkalianInitialState extends PerkalianState {}
 
-class PenjumlahanLoadedState extends PenjumlahanState {
-  final List<PenjumlahanSafeState> safes;
+class PerkalianLoadedState extends PerkalianState {
+  final List<PerkalianSafeState> safes;
   final bool isGameWon;
 
-  PenjumlahanLoadedState({required this.safes, this.isGameWon = false});
+  PerkalianLoadedState({required this.safes, this.isGameWon = false});
 
   @override
   List<Object?> get props => [safes, isGameWon];
 }
 
-class PenjumlahanSafeState extends Equatable {
+class PerkalianSafeState extends Equatable {
   final List<int> numbers;
   final List<int> correctNumbers;
   final List<int> selectedNumbers;
   final bool isUnlocked;
   final int targetSum;
 
-  PenjumlahanSafeState({
+  PerkalianSafeState({
     required this.numbers,
     required this.correctNumbers,
     this.selectedNumbers = const [],
@@ -32,14 +32,14 @@ class PenjumlahanSafeState extends Equatable {
     required this.targetSum,
   });
 
-  PenjumlahanSafeState copyWith({
+  PerkalianSafeState copyWith({
     List<int>? numbers,
     List<int>? correctNumbers,
     List<int>? selectedNumbers,
     bool? isUnlocked,
     int? targetSum,
   }) {
-    return PenjumlahanSafeState(
+    return PerkalianSafeState(
       numbers: numbers ?? this.numbers,
       correctNumbers: correctNumbers ?? this.correctNumbers,
       selectedNumbers: selectedNumbers ?? this.selectedNumbers,
@@ -53,6 +53,6 @@ class PenjumlahanSafeState extends Equatable {
       [numbers, correctNumbers, targetSum, selectedNumbers, isUnlocked];
 }
 
-class PenjumlahanWinState extends PenjumlahanState {}
+class PerkalianWinState extends PerkalianState {}
 
-class PenjumlahanResetState extends PenjumlahanState {}
+class PerkalianResetState extends PerkalianState {}

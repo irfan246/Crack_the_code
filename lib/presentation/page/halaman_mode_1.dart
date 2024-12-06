@@ -8,7 +8,7 @@ class HalamanMode1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: WidgetAppbar(title: 'MODE 1'),
+      appBar: const WidgetAppbar(title: 'MODE 1'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

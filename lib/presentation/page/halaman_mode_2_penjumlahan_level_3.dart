@@ -9,7 +9,7 @@ class HalamanMode2PenjumlahanLevel3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: WidgetAppbar(title: 'MODE 2'),
+      appBar: const WidgetAppbar(title: 'MODE 2'),
       body: Stack(
         children: [
           Positioned(
@@ -43,7 +43,7 @@ class HalamanMode2PenjumlahanLevel3 extends StatelessWidget {
                 runSpacing: 20,
                 children: List.generate(
                   4,
-                  (index) => SizedBox(
+                  (index) => const SizedBox(
                     width: 352,
                     height: 320,
                   ),

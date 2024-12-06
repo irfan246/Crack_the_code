@@ -113,7 +113,7 @@ class HalamanGagal extends StatelessWidget {
       bottomNavigationBar: TextButton(
           onPressed: () {},
           child: const Padding(
-            padding: const EdgeInsets.only(
+            padding: EdgeInsets.only(
               bottom: 10,
             ),
             child: Text(

@@ -1,34 +1,32 @@
 import 'package:flutter/material.dart';
 
 class ButtonBrangkas extends StatelessWidget {
-  final buttonColor;
-  final textColor;
   final String buttonText;
-  final buttonTap;
+  final bool isSelected;
+  final VoidCallback? buttonTap;
 
   const ButtonBrangkas(
       {super.key,
-      this.buttonColor,
-      this.textColor,
       required this.buttonText,
-      this.buttonTap});
+      this.buttonTap,
+      this.isSelected = false});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: buttonTap,
       child: DecoratedBox(
-        decoration: const BoxDecoration(
-          color: Color(0xFFFFB38E),
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          boxShadow: [
+        decoration: BoxDecoration(
+          color: isSelected ? Colors.grey : const Color(0xFFFFB38E),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
+          boxShadow: const [
             BoxShadow(
               color: Colors.black26,
               offset: Offset(3, 3),
               blurRadius: 4,
             ),
           ],
-          border: Border.fromBorderSide(
+          border: const Border.fromBorderSide(
             BorderSide(color: Colors.black, width: 1),
           ),
         ),

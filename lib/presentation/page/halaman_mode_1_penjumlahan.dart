@@ -1,3 +1,5 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../application/bloc_mode_1_penjumlahan/penjumlahan_bloc.dart';
 import '../widget/widget_brangkas.dart';
 import '../widget/widget_appbar.dart';
 import 'package:flutter/material.dart';
@@ -7,26 +9,49 @@ class HalamanMode1Penjumlahan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: WidgetAppbar(title: 'MODE 1'),
-      body: Center(
-        child: SizedBox(
-          width: 766,
-          child: Wrap(
-            alignment: WrapAlignment.center,
-            spacing: 20,
-            runSpacing: 20,
-            children: List.generate(
-              4,
-              (index) => SizedBox(
-                width: 352,
-                height: 320,
-                child: WidgetBrangkas(),
-              ),
-            ),
-          ),
-        ),
-      ),
+    return BlocConsumer<PenjumlahanBlocMode1, PenjumlahanState>(
+      listener: (context, state) {
+        if (state is PenjumlahanWinState) {
+          Navigator.pushReplacementNamed(context, '/berhasil');
+        }
+      },
+      builder: (context, state) {
+        if (state is PenjumlahanLoadedState) {
+          return Scaffold(
+              appBar: const WidgetAppbar(title: 'MODE 1'),
+              body: Center(
+                child: SizedBox(
+                  width: 766,
+                  height: 644,
+                  child: Wrap(
+                    spacing: 20,
+                    runSpacing: 20,
+                    children: List.generate(4, (index) {
+                      final safe = state.safes[index];
+                      return WidgetBrangkas(
+                        safe: state.safes[index],
+                        isUnlocked: safe.isUnlocked,
+                        buttonNumbers: safe.numbers,
+                        selectedNumbers: safe.selectedNumbers,
+                        onButtonTap: (selectedNumber) {
+                          context.read<PenjumlahanBlocMode1>().add(
+                                SelectNumber(
+                                  safeIndex: index,
+                                  selectedNumber: selectedNumber,
+                                ),
+                              );
+                        },
+                      );
+                    }),
+                  ),
+                ),
+              ));
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
     );
   }
 }

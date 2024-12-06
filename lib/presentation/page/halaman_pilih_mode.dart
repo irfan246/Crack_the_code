@@ -8,7 +8,7 @@ class HalamanPilihMode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: WidgetAppbar(title: 'PILIH MODE'),
+      appBar: const WidgetAppbar(title: 'PILIH MODE'),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

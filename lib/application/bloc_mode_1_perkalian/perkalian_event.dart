@@ -1,11 +1,11 @@
-part of 'penjumlahan_bloc.dart';
+part of 'perkalian_bloc.dart';
 
-abstract class PenjumlahanEvent extends Equatable {
+abstract class PerkalianEvent extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-class SelectNumber extends PenjumlahanEvent {
+class SelectNumber extends PerkalianEvent {
   final int safeIndex;
   final int selectedNumber;
 
@@ -15,6 +15,6 @@ class SelectNumber extends PenjumlahanEvent {
   List<Object?> get props => [safeIndex, selectedNumber];
 }
 
-class CheckWin extends PenjumlahanEvent {}
+class CheckWin extends PerkalianEvent {}
 
-class ResetEvent extends PenjumlahanEvent {}
+class ResetEvent extends PerkalianEvent {}

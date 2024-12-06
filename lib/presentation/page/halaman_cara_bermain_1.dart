@@ -7,7 +7,7 @@ class HalamanCaraBermain1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: WidgetAppbar(title: 'CARA BERMAIN'),
+      appBar: const WidgetAppbar(title: 'CARA BERMAIN'),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

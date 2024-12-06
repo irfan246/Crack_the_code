@@ -1,4 +1,4 @@
-part of '../application/bloc_mode_1_penjumlahan/penjumlahan_bloc.dart';
+part of '../application/bloc_mode_1_perkalian/perkalian_bloc.dart';
 
 class GameData {
   static final Random _random = Random();
@@ -22,7 +22,7 @@ class GameData {
 
   static Map<String, dynamic> generateSafe() {
     final correctNumbers = generateCorrectNumbers();
-    final targetSum = correctNumbers.reduce((a, b) => a + b);
+    final targetSum = correctNumbers.reduce((a, b) => a * b);
 
     return {
       'targetSum': targetSum,

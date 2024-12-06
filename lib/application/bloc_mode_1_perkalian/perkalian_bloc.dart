@@ -1,21 +1,21 @@
 import 'dart:math';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-part '../../domain/data_penjumlahan.dart';
-part 'penjumlahan_event.dart';
-part 'penjumlahan_state.dart';
+part '../../domain/data_perkalian.dart';
+part 'perkalian_event.dart';
+part 'perkalian_state.dart';
 
-class PenjumlahanBlocMode1 extends Bloc<PenjumlahanEvent, PenjumlahanState> {
-  PenjumlahanBlocMode1()
-      : super(PenjumlahanLoadedState(safes: _generateInitialSafes())) {
+class PerkalianBlocMode1 extends Bloc<PerkalianEvent, PerkalianState> {
+  PerkalianBlocMode1()
+      : super(PerkalianLoadedState(safes: _generateInitialSafes())) {
     on<SelectNumber>(_onSelectNumber);
     on<CheckWin>(_onCheckWin);
     on<ResetEvent>(_onRestartGame);
   }
 
-  void _onSelectNumber(SelectNumber event, Emitter<PenjumlahanState> emit) {
-    final currentState = state as PenjumlahanLoadedState;
-    final safes = List<PenjumlahanSafeState>.from(currentState.safes);
+  void _onSelectNumber(SelectNumber event, Emitter<PerkalianState> emit) {
+    final currentState = state as PerkalianLoadedState;
+    final safes = List<PerkalianSafeState>.from(currentState.safes);
 
     final safe = safes[event.safeIndex];
     if (safe.isUnlocked) return;
@@ -30,7 +30,7 @@ class PenjumlahanBlocMode1 extends Bloc<PenjumlahanEvent, PenjumlahanState> {
       );
 
       if (updatedSelectedNumbers.length == 3) {
-        final sum = updatedSelectedNumbers.reduce((a, b) => a + b);
+        final sum = updatedSelectedNumbers.reduce((a, b) => a * b);
 
         if (sum == safe.targetSum &&
             _isCorrectCombination(
@@ -49,17 +49,17 @@ class PenjumlahanBlocMode1 extends Bloc<PenjumlahanEvent, PenjumlahanState> {
 
     final isGameWon = safes.every((safe) => safe.isUnlocked);
 
-    emit(PenjumlahanLoadedState(safes: safes, isGameWon: isGameWon));
+    emit(PerkalianLoadedState(safes: safes, isGameWon: isGameWon));
     add(CheckWin());
   }
 
-  void _onCheckWin(CheckWin event, Emitter<PenjumlahanState> emit) {
-    final currentState = state as PenjumlahanLoadedState;
+  void _onCheckWin(CheckWin event, Emitter<PerkalianState> emit) {
+    final currentState = state as PerkalianLoadedState;
     final isAllSafesUnlocked =
         currentState.safes.every((safe) => safe.isUnlocked);
 
     if (isAllSafesUnlocked) {
-      emit(PenjumlahanWinState());
+      emit(PerkalianWinState());
     }
   }
 
@@ -68,9 +68,9 @@ class PenjumlahanBlocMode1 extends Bloc<PenjumlahanEvent, PenjumlahanState> {
     return Set.from(selectedNumbers).containsAll(correctNumbers);
   }
 
-  static List<PenjumlahanSafeState> _generateInitialSafes() {
+  static List<PerkalianSafeState> _generateInitialSafes() {
     return GameData.generateSafes().map((data) {
-      return PenjumlahanSafeState(
+      return PerkalianSafeState(
         numbers: List<int>.from(data['allNumbers']),
         correctNumbers: List<int>.from(data['correctNumbers']),
         targetSum: data['targetSum'],
@@ -78,15 +78,15 @@ class PenjumlahanBlocMode1 extends Bloc<PenjumlahanEvent, PenjumlahanState> {
     }).toList();
   }
 
-  void _onRestartGame(ResetEvent event, Emitter<PenjumlahanState> emit) {
+  void _onRestartGame(ResetEvent event, Emitter<PerkalianState> emit) {
     final newSafes = GameData.generateSafes(4).map((data) {
-      return PenjumlahanSafeState(
+      return PerkalianSafeState(
         numbers: List<int>.from(data['allNumbers']),
         correctNumbers: List<int>.from(data['correctNumbers']),
         targetSum: data['targetSum'],
       );
     }).toList();
 
-    emit(PenjumlahanLoadedState(safes: newSafes));
+    emit(PerkalianLoadedState(safes: newSafes));
   }
 }
