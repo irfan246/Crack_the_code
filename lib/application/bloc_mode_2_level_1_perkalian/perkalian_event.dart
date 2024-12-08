@@ -17,4 +17,10 @@ class SelectNumber extends PerkalianEvent {
 
 class CheckWin extends PerkalianEvent {}
 
-class perkalianMode1ResetEvent extends PerkalianEvent {}
+class PerkalianMode2Level1ResetEvent extends PerkalianEvent {}
+
+class PerkalianMode2Level1StartTimer extends PerkalianEvent {}
+
+class UpdateTime extends PerkalianEvent {}
+
+class TimeOut extends PerkalianEvent {}

@@ -1,15 +1,55 @@
+import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../domain/data_perkalian.dart';
+import '../../domain/data_Perkalian.dart';
 part 'perkalian_event.dart';
 part 'perkalian_state.dart';
 
-class PerkalianBlocMode1 extends Bloc<PerkalianEvent, PerkalianState> {
-  PerkalianBlocMode1()
+class PerkalianBlocMode2Level2 extends Bloc<PerkalianEvent, PerkalianState> {
+  static const int _timeLimit = 120;
+  late Timer _timer;
+  int _remainingTime = _timeLimit;
+
+  PerkalianBlocMode2Level2()
       : super(PerkalianLoadedState(safes: _generateInitialSafes())) {
+    on<PerkalianMode2Level2StartTimer>(_onStartTimer);
     on<SelectNumber>(_onSelectNumber);
     on<CheckWin>(_onCheckWin);
-    on<perkalianMode1ResetEvent>(_onRestartGame);
+    on<PerkalianMode2Level2ResetEvent>(_onRestartGame);
+    on<UpdateTime>(_onUpdateTime);
+    on<TimeOut>(_onTimeOut);
+  }
+
+  void _onStartTimer(
+      PerkalianMode2Level2StartTimer event, Emitter<PerkalianState> emit) {
+    // Initialize game state
+    emit(PerkalianLoadedState(
+      safes: _generateInitialSafes(),
+      remainingTime: _remainingTime,
+    ));
+
+    // Start countdown timer
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      add(UpdateTime());
+    });
+  }
+
+  void _onUpdateTime(UpdateTime event, Emitter<PerkalianState> emit) {
+    if (_remainingTime > 0) {
+      _remainingTime--;
+
+      final currentState = state;
+      if (currentState is PerkalianLoadedState) {
+        emit(currentState.copyWith(remainingTime: _remainingTime));
+      }
+    } else {
+      add(TimeOut());
+    }
+  }
+
+  void _onTimeOut(TimeOut event, Emitter<PerkalianState> emit) {
+    _timer.cancel();
+    emit(PerkalianFailedState());
   }
 
   void _onSelectNumber(SelectNumber event, Emitter<PerkalianState> emit) {
@@ -48,7 +88,10 @@ class PerkalianBlocMode1 extends Bloc<PerkalianEvent, PerkalianState> {
 
     final isGameWon = safes.every((safe) => safe.isUnlocked);
 
-    emit(PerkalianLoadedState(safes: safes, isGameWon: isGameWon));
+    emit(PerkalianLoadedState(
+      safes: safes,
+      isGameWon: isGameWon,
+    ));
     add(CheckWin());
   }
 
@@ -78,7 +121,11 @@ class PerkalianBlocMode1 extends Bloc<PerkalianEvent, PerkalianState> {
   }
 
   void _onRestartGame(
-      perkalianMode1ResetEvent event, Emitter<PerkalianState> emit) {
+      PerkalianMode2Level2ResetEvent event, Emitter<PerkalianState> emit) {
+    _timer.cancel();
+    _remainingTime = _timeLimit;
+    add(PerkalianMode2Level2StartTimer());
+
     final newSafes = GameData.generateSafes(4).map((data) {
       return PerkalianSafeState(
         numbers: List<int>.from(data['allNumbers']),
@@ -87,6 +134,14 @@ class PerkalianBlocMode1 extends Bloc<PerkalianEvent, PerkalianState> {
       );
     }).toList();
 
-    emit(PerkalianLoadedState(safes: newSafes));
+    emit(PerkalianLoadedState(
+      safes: newSafes,
+    ));
+  }
+
+  @override
+  Future<void> close() {
+    _timer.cancel();
+    return super.close();
   }
 }

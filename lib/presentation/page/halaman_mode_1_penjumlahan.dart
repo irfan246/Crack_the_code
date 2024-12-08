@@ -1,8 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/bloc_mode_1_penjumlahan/penjumlahan_bloc.dart';
-import '../widget/widget_brangkas.dart';
 import '../widget/widget_appbar.dart';
 import 'package:flutter/material.dart';
+
+import '../widget/widget_brangkas.dart';
 
 class HalamanMode1Penjumlahan extends StatelessWidget {
   const HalamanMode1Penjumlahan({super.key});

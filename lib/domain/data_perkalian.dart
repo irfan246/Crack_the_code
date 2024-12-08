@@ -1,4 +1,4 @@
-part of '../application/bloc_mode_1_perkalian/perkalian_bloc.dart';
+import 'dart:math';
 
 class GameData {
   static final Random _random = Random();

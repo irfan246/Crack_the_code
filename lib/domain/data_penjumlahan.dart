@@ -1,4 +1,4 @@
-part of '../application/bloc_mode_1_penjumlahan/penjumlahan_bloc.dart';
+import 'dart:math';
 
 class GameData {
   static final Random _random = Random();

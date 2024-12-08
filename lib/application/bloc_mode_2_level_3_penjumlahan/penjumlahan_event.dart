@@ -17,4 +17,10 @@ class SelectNumber extends PenjumlahanEvent {
 
 class CheckWin extends PenjumlahanEvent {}
 
-class penjumlahanMode1ResetEvent extends PenjumlahanEvent {}
+class PenjumlahanMode2Level3ResetEvent extends PenjumlahanEvent {}
+
+class PenjumlahanMode2Level3StartTimer extends PenjumlahanEvent {}
+
+class UpdateTime extends PenjumlahanEvent {}
+
+class TimeOut extends PenjumlahanEvent {}
