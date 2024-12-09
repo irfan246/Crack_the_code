@@ -37,6 +37,7 @@ class PerkalianSafeState extends Equatable {
     List<int>? correctNumbers,
     List<int>? selectedNumbers,
     bool? isUnlocked,
+    bool? isWrong,
     int? targetSum,
   }) {
     return PerkalianSafeState(
@@ -49,8 +50,13 @@ class PerkalianSafeState extends Equatable {
   }
 
   @override
-  List<Object?> get props =>
-      [numbers, correctNumbers, targetSum, selectedNumbers, isUnlocked];
+  List<Object?> get props => [
+        numbers,
+        correctNumbers,
+        targetSum,
+        selectedNumbers,
+        isUnlocked,
+      ];
 }
 
 class PerkalianWinState extends PerkalianState {}

@@ -49,8 +49,13 @@ class PenjumlahanSafeState extends Equatable {
   }
 
   @override
-  List<Object?> get props =>
-      [numbers, correctNumbers, targetSum, selectedNumbers, isUnlocked];
+  List<Object?> get props => [
+        numbers,
+        correctNumbers,
+        targetSum,
+        selectedNumbers,
+        isUnlocked,
+      ];
 }
 
 class PenjumlahanWinState extends PenjumlahanState {}

@@ -4,9 +4,10 @@ import 'button_brangkas.dart';
 class WidgetBrangkas extends StatelessWidget {
   final safe;
   final bool isUnlocked;
+  final bool isWrong;
   final List<int> buttonNumbers;
   final List<int> selectedNumbers;
-  final Function(int selectedNumber) onButtonTap;
+  final Function(int) onButtonTap;
 
   const WidgetBrangkas({
     super.key,
@@ -15,6 +16,7 @@ class WidgetBrangkas extends StatelessWidget {
     required this.buttonNumbers,
     required this.selectedNumbers,
     required this.onButtonTap,
+    this.isWrong = false,
   });
 
   @override

@@ -22,7 +22,13 @@ class PenjumlahanBlocMode1 extends Bloc<PenjumlahanEvent, PenjumlahanState> {
     final updatedSelectedNumbers = List<int>.from(safe.selectedNumbers);
 
     if (updatedSelectedNumbers.length < 3) {
-      updatedSelectedNumbers.add(event.selectedNumber);
+      final alreadySelected =
+          updatedSelectedNumbers.contains(event.selectedNumber);
+
+      if (!alreadySelected ||
+          !updatedSelectedNumbers.any((num) => num == event.selectedNumber)) {
+        updatedSelectedNumbers.add(event.selectedNumber);
+      }
 
       safes[event.safeIndex] = safe.copyWith(
         selectedNumbers: updatedSelectedNumbers,

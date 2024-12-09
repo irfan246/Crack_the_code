@@ -28,7 +28,7 @@ class HalamanMode2PenjumlahanLevel3 extends StatelessWidget {
               children: [
                 Positioned(
                   top: 10,
-                  left: 10,
+                  left: 1700,
                   child: Material(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
