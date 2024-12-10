@@ -7,12 +7,12 @@ abstract class PerkalianEvent extends Equatable {
 
 class SelectNumber extends PerkalianEvent {
   final int safeIndex;
-  final int selectedNumber;
+  final int selectedIndex;
 
-  SelectNumber({required this.safeIndex, required this.selectedNumber});
+  SelectNumber({required this.safeIndex, required this.selectedIndex});
 
   @override
-  List<Object?> get props => [safeIndex, selectedNumber];
+  List<Object?> get props => [safeIndex, selectedIndex];
 }
 
 class CheckWin extends PerkalianEvent {}

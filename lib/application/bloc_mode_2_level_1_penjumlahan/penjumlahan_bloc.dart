@@ -23,13 +23,11 @@ class PenjumlahanBlocMode2Level1
 
   void _onStartTimer(
       PenjumlahanMode2Level1StartTimer event, Emitter<PenjumlahanState> emit) {
-    // Initialize game state
     emit(PenjumlahanLoadedState(
       safes: _generateInitialSafes(),
       remainingTime: _remainingTime,
     ));
 
-    // Start countdown timer
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       add(UpdateTime());
     });
@@ -60,39 +58,36 @@ class PenjumlahanBlocMode2Level1
     final safe = safes[event.safeIndex];
     if (safe.isUnlocked) return;
 
-    final updatedSelectedNumbers = List<int>.from(safe.selectedNumbers);
+    final updatedSelectedIndexes = List<int>.from(safe.selectedIndexes);
 
-    if (updatedSelectedNumbers.length < 3) {
-      updatedSelectedNumbers.add(event.selectedNumber);
+    if (updatedSelectedIndexes.length < 3 &&
+        !updatedSelectedIndexes.contains(event.selectedIndex)) {
+      updatedSelectedIndexes.add(event.selectedIndex);
+    }
 
-      safes[event.safeIndex] = safe.copyWith(
-        selectedNumbers: updatedSelectedNumbers,
-      );
+    safes[event.safeIndex] = safe.copyWith(
+      selectedIndexes: updatedSelectedIndexes,
+    );
 
-      if (updatedSelectedNumbers.length == 3) {
-        final sum = updatedSelectedNumbers.reduce((a, b) => a + b);
+    if (updatedSelectedIndexes.length == 3) {
+      final selectedNumbers =
+          updatedSelectedIndexes.map((index) => safe.numbers[index]).toList();
+      final sum = selectedNumbers.reduce((a, b) => a + b);
 
-        if (sum == safe.targetSum &&
-            _isCorrectCombination(
-                updatedSelectedNumbers, safe.correctNumbers)) {
-          safes[event.safeIndex] = safe.copyWith(
-            isUnlocked: true,
-            selectedNumbers: updatedSelectedNumbers,
-          );
-        } else {
-          safes[event.safeIndex] = safe.copyWith(
-            selectedNumbers: [],
-          );
-        }
+      if (sum == safe.targetSum &&
+          _isCorrectCombination(selectedNumbers, safe.correctNumbers)) {
+        safes[event.safeIndex] = safe.copyWith(
+          isUnlocked: true,
+          selectedIndexes: updatedSelectedIndexes,
+        );
+      } else {
+        safes[event.safeIndex] = safe.copyWith(
+          selectedIndexes: [],
+        );
       }
     }
 
-    final isGameWon = safes.every((safe) => safe.isUnlocked);
-
-    emit(PenjumlahanLoadedState(
-      safes: safes,
-      isGameWon: isGameWon,
-    ));
+    emit(PenjumlahanLoadedState(safes: safes));
     add(CheckWin());
   }
 

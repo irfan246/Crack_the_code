@@ -43,35 +43,40 @@ class PerkalianFailedState extends PerkalianState {}
 class PerkalianSafeState extends Equatable {
   final List<int> numbers;
   final List<int> correctNumbers;
-  final List<int> selectedNumbers;
-  final int targetSum;
+  final List<int> selectedIndexes;
   final bool isUnlocked;
+  final int targetSum;
 
-  const PerkalianSafeState({
+  PerkalianSafeState({
     required this.numbers,
     required this.correctNumbers,
-    this.selectedNumbers = const [],
-    required this.targetSum,
+    this.selectedIndexes = const [],
     this.isUnlocked = false,
+    required this.targetSum,
   });
 
   PerkalianSafeState copyWith({
     List<int>? numbers,
     List<int>? correctNumbers,
-    List<int>? selectedNumbers,
-    int? targetSum,
+    List<int>? selectedIndexes,
     bool? isUnlocked,
+    int? targetSum,
   }) {
     return PerkalianSafeState(
       numbers: numbers ?? this.numbers,
       correctNumbers: correctNumbers ?? this.correctNumbers,
-      selectedNumbers: selectedNumbers ?? this.selectedNumbers,
-      targetSum: targetSum ?? this.targetSum,
+      selectedIndexes: selectedIndexes ?? this.selectedIndexes,
       isUnlocked: isUnlocked ?? this.isUnlocked,
+      targetSum: targetSum ?? this.targetSum,
     );
   }
 
   @override
-  List<Object?> get props =>
-      [numbers, correctNumbers, selectedNumbers, targetSum, isUnlocked];
+  List<Object?> get props => [
+        numbers,
+        correctNumbers,
+        targetSum,
+        selectedIndexes,
+        isUnlocked,
+      ];
 }

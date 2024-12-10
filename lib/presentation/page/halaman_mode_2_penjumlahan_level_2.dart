@@ -62,12 +62,12 @@ class HalamanMode2PenjumlahanLevel2 extends StatelessWidget {
                           safe: state.safes[index],
                           isUnlocked: safe.isUnlocked,
                           buttonNumbers: safe.numbers,
-                          selectedNumbers: safe.selectedNumbers,
+                          selectedNumbers: safe.selectedIndexes,
                           onButtonTap: (selectedNumber) {
                             context.read<PenjumlahanBlocMode2Level2>().add(
                                   SelectNumber(
                                     safeIndex: index,
-                                    selectedNumber: selectedNumber,
+                                    selectedIndex: selectedNumber,
                                   ),
                                 );
                           },

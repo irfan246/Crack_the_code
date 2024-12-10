@@ -138,7 +138,6 @@ class HalamanGagal extends StatelessWidget {
             Navigator.pop(context);
             Navigator.pop(context);
             Navigator.pop(context);
-            Navigator.pop(context);
           },
           child: const Padding(
             padding: EdgeInsets.only(

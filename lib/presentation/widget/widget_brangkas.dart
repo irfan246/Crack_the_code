@@ -214,14 +214,14 @@ class WidgetBrangkas extends StatelessWidget {
                       ),
                       itemBuilder: (context, index) {
                         final number = buttonNumbers[index];
-                        final isSelected = selectedNumbers.contains(number);
+                        final isSelected = selectedNumbers.contains(index);
                         return ButtonBrangkas(
                           buttonText: number.toString(),
                           isSelected: isSelected,
                           buttonTap: isUnlocked
                               ? null
                               : () {
-                                  onButtonTap(number);
+                                  onButtonTap(index);
                                 },
                         );
                       },

@@ -59,39 +59,36 @@ class PerkalianBlocMode2Level3 extends Bloc<PerkalianEvent, PerkalianState> {
     final safe = safes[event.safeIndex];
     if (safe.isUnlocked) return;
 
-    final updatedSelectedNumbers = List<int>.from(safe.selectedNumbers);
+    final updatedSelectedIndexes = List<int>.from(safe.selectedIndexes);
 
-    if (updatedSelectedNumbers.length < 3) {
-      updatedSelectedNumbers.add(event.selectedNumber);
+    if (updatedSelectedIndexes.length < 3 &&
+        !updatedSelectedIndexes.contains(event.selectedIndex)) {
+      updatedSelectedIndexes.add(event.selectedIndex);
+    }
 
-      safes[event.safeIndex] = safe.copyWith(
-        selectedNumbers: updatedSelectedNumbers,
-      );
+    safes[event.safeIndex] = safe.copyWith(
+      selectedIndexes: updatedSelectedIndexes,
+    );
 
-      if (updatedSelectedNumbers.length == 3) {
-        final sum = updatedSelectedNumbers.reduce((a, b) => a * b);
+    if (updatedSelectedIndexes.length == 3) {
+      final selectedNumbers =
+          updatedSelectedIndexes.map((index) => safe.numbers[index]).toList();
+      final sum = selectedNumbers.reduce((a, b) => a + b);
 
-        if (sum == safe.targetSum &&
-            _isCorrectCombination(
-                updatedSelectedNumbers, safe.correctNumbers)) {
-          safes[event.safeIndex] = safe.copyWith(
-            isUnlocked: true,
-            selectedNumbers: updatedSelectedNumbers,
-          );
-        } else {
-          safes[event.safeIndex] = safe.copyWith(
-            selectedNumbers: [],
-          );
-        }
+      if (sum == safe.targetSum &&
+          _isCorrectCombination(selectedNumbers, safe.correctNumbers)) {
+        safes[event.safeIndex] = safe.copyWith(
+          isUnlocked: true,
+          selectedIndexes: updatedSelectedIndexes,
+        );
+      } else {
+        safes[event.safeIndex] = safe.copyWith(
+          selectedIndexes: [],
+        );
       }
     }
 
-    final isGameWon = safes.every((safe) => safe.isUnlocked);
-
-    emit(PerkalianLoadedState(
-      safes: safes,
-      isGameWon: isGameWon,
-    ));
+    emit(PerkalianLoadedState(safes: safes));
     add(CheckWin());
   }
 

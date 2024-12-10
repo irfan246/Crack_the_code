@@ -32,12 +32,12 @@ class HalamanMode1Perkalian extends StatelessWidget {
                         safe: state.safes[index],
                         isUnlocked: safe.isUnlocked,
                         buttonNumbers: safe.numbers,
-                        selectedNumbers: safe.selectedNumbers,
+                        selectedNumbers: safe.selectedIndexes,
                         onButtonTap: (selectedNumber) {
                           context.read<PerkalianBlocMode1>().add(
                                 SelectNumber(
                                   safeIndex: index,
-                                  selectedNumber: selectedNumber,
+                                  selectedIndex: selectedNumber,
                                 ),
                               );
                         },

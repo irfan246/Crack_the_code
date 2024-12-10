@@ -20,14 +20,14 @@ class PerkalianLoadedState extends PerkalianState {
 class PerkalianSafeState extends Equatable {
   final List<int> numbers;
   final List<int> correctNumbers;
-  final List<int> selectedNumbers;
+  final List<int> selectedIndexes;
   final bool isUnlocked;
   final int targetSum;
 
   PerkalianSafeState({
     required this.numbers,
     required this.correctNumbers,
-    this.selectedNumbers = const [],
+    this.selectedIndexes = const [],
     this.isUnlocked = false,
     required this.targetSum,
   });
@@ -35,15 +35,14 @@ class PerkalianSafeState extends Equatable {
   PerkalianSafeState copyWith({
     List<int>? numbers,
     List<int>? correctNumbers,
-    List<int>? selectedNumbers,
+    List<int>? selectedIndexes,
     bool? isUnlocked,
-    bool? isWrong,
     int? targetSum,
   }) {
     return PerkalianSafeState(
       numbers: numbers ?? this.numbers,
       correctNumbers: correctNumbers ?? this.correctNumbers,
-      selectedNumbers: selectedNumbers ?? this.selectedNumbers,
+      selectedIndexes: selectedIndexes ?? this.selectedIndexes,
       isUnlocked: isUnlocked ?? this.isUnlocked,
       targetSum: targetSum ?? this.targetSum,
     );
@@ -54,7 +53,7 @@ class PerkalianSafeState extends Equatable {
         numbers,
         correctNumbers,
         targetSum,
-        selectedNumbers,
+        selectedIndexes,
         isUnlocked,
       ];
 }
