@@ -75,8 +75,7 @@ class PerkalianBlocMode2Level2 extends Bloc<PerkalianEvent, PerkalianState> {
           updatedSelectedIndexes.map((index) => safe.numbers[index]).toList();
       final sum = selectedNumbers.reduce((a, b) => a + b);
 
-      if (sum == safe.targetSum &&
-          _isCorrectCombination(selectedNumbers, safe.correctNumbers)) {
+      if (sum == safe.targetSum) {
         safes[event.safeIndex] = safe.copyWith(
           isUnlocked: true,
           selectedIndexes: updatedSelectedIndexes,
@@ -88,7 +87,7 @@ class PerkalianBlocMode2Level2 extends Bloc<PerkalianEvent, PerkalianState> {
       }
     }
 
-    emit(PerkalianLoadedState(safes: safes));
+    emit(PerkalianLoadedState(safes: safes, remainingTime: _remainingTime));
     add(CheckWin());
   }
 
@@ -100,11 +99,6 @@ class PerkalianBlocMode2Level2 extends Bloc<PerkalianEvent, PerkalianState> {
     if (isAllSafesUnlocked) {
       emit(PerkalianWinState());
     }
-  }
-
-  static bool _isCorrectCombination(
-      List<int> selectedNumbers, List<int> correctNumbers) {
-    return Set.from(selectedNumbers).containsAll(correctNumbers);
   }
 
   static List<PerkalianSafeState> _generateInitialSafes() {

@@ -38,6 +38,10 @@ class HalamanGagal extends StatelessWidget {
                         fontFamily: 'Story_Milky',
                         fontSize: 48,
                         color: Color(0xFF206430),
+                        shadows: [
+                          Shadow(color: Colors.white, offset: Offset(1, 0)),
+                          Shadow(color: Colors.white, offset: Offset(-1, 0)),
+                        ],
                       ),
                     ),
                   ),
@@ -50,6 +54,10 @@ class HalamanGagal extends StatelessWidget {
                         fontFamily: 'Story_Milky',
                         fontSize: 48,
                         color: Color(0xFF206430),
+                        shadows: [
+                          Shadow(color: Colors.white, offset: Offset(1, 0)),
+                          Shadow(color: Colors.white, offset: Offset(-1, 0)),
+                        ],
                       ),
                     ),
                   ),
@@ -135,9 +143,7 @@ class HalamanGagal extends StatelessWidget {
                 context, PerkalianMode2Level2ResetEvent());
             addEventToBloc<PerkalianBlocMode2Level3>(
                 context, PerkalianMode2Level3ResetEvent());
-            Navigator.pop(context);
-            Navigator.pop(context);
-            Navigator.pop(context);
+            Navigator.pushReplacementNamed(context, '/pilihMode');
           },
           child: const Padding(
             padding: EdgeInsets.only(

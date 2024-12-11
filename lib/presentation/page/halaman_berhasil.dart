@@ -14,9 +14,9 @@ class HalamanBerhasil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: GestureDetector(
-      onTap: () {
+    Future.delayed(
+      const Duration(seconds: 5),
+      () {
         addEventToBloc<PenjumlahanBlocMode1>(
             context, penjumlahanMode1ResetEvent());
         addEventToBloc<PerkalianBlocMode1>(context, perkalianMode1ResetEvent());
@@ -32,111 +32,117 @@ class HalamanBerhasil extends StatelessWidget {
             context, PerkalianMode2Level2ResetEvent());
         addEventToBloc<PerkalianBlocMode2Level3>(
             context, PerkalianMode2Level3ResetEvent());
-        Navigator.pop(context);
-        Navigator.pop(context);
-        Navigator.pop(context);
+        Navigator.pushReplacementNamed(context, '/pilihMode');
       },
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 480,
-              width: 582,
-              child: Stack(
-                children: [
-                  Center(
-                    child: Image(
-                      image: AssetImage('assets/images/emote_berhasil.png'),
-                    ),
+    );
+    return Scaffold(
+        body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 480,
+            width: 582,
+            child: Stack(
+              children: [
+                Center(
+                  child: Image(
+                    image: AssetImage('assets/images/emote_berhasil.png'),
                   ),
-                  Positioned(
-                    top: 380,
-                    left: 120,
-                    child: Text(
-                      'YEAY SELAMAT',
-                      style: TextStyle(
-                        fontFamily: 'Story_Milky',
-                        fontSize: 48,
-                        color: Color(0xFF206430),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 425,
-                    left: 90,
-                    child: Text(
-                      'KAMU BERHASIL!!',
-                      style: TextStyle(
-                        fontFamily: 'Story_Milky',
-                        fontSize: 48,
-                        color: Color(0xFF206430),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            const SizedBox(
-              width: 791,
-              height: 93,
-              child: Wrap(
-                children: [
-                  Text(
-                    "JANGAN MUDAH PUAS DENGAN KEBERHASILAN. KARNA MASIH ADA KEBERHASILAN-KEBERHASILAN LAIN YANG HARUS KALIAN RAIH. SEMANGAT!!",
+                ),
+                Positioned(
+                  top: 380,
+                  left: 120,
+                  child: Text(
+                    'YEAY SELAMAT',
                     style: TextStyle(
-                      fontFamily: 'FLAWFULL',
-                      fontSize: 32,
-                      color: Colors.white,
+                      fontFamily: 'Story_Milky',
+                      fontSize: 48,
+                      color: Color(0xFF206430),
+                      shadows: [
+                        Shadow(color: Colors.white, offset: Offset(1, 0)),
+                        Shadow(color: Colors.white, offset: Offset(-1, 0)),
+                      ],
                     ),
-                    textAlign: TextAlign.center,
-                  )
-                ],
-              ),
+                  ),
+                ),
+                Positioned(
+                  top: 425,
+                  left: 90,
+                  child: Text(
+                    'KAMU BERHASIL!!',
+                    style: TextStyle(
+                        fontFamily: 'Story_Milky',
+                        fontSize: 48,
+                        color: Color(0xFF206430),
+                        shadows: [
+                          Shadow(color: Colors.white, offset: Offset(1, 0)),
+                          Shadow(color: Colors.white, offset: Offset(-1, 0)),
+                        ]),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(
-              height: 25,
-            ),
-            RichText(
-              text: const TextSpan(
-                  text: '-',
-                  children: [
-                    TextSpan(
-                        text: 'CRACK',
-                        style: TextStyle(
-                          fontFamily: 'Story_Milky',
-                          color: Color(0xFFD95F59),
-                          fontSize: 32,
-                          wordSpacing: 67.39,
-                        )),
-                    TextSpan(
-                        text: 'THE',
-                        style: TextStyle(
-                          fontFamily: 'Story_Milky',
-                          color: Color(0xFFD95F59),
-                          fontSize: 20,
-                          wordSpacing: 42.12,
-                        )),
-                    TextSpan(
-                        text: 'CODE',
-                        style: TextStyle(
-                          fontFamily: 'Story_Milky',
-                          color: Color(0xFFD95F59),
-                          fontSize: 32,
-                          wordSpacing: 67.39,
-                        ))
-                  ],
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          const SizedBox(
+            width: 791,
+            height: 93,
+            child: Wrap(
+              children: [
+                Text(
+                  "JANGAN MUDAH PUAS DENGAN KEBERHASILAN. KARNA MASIH ADA KEBERHASILAN-KEBERHASILAN LAIN YANG HARUS KALIAN RAIH. SEMANGAT!!",
                   style: TextStyle(
                     fontFamily: 'FLAWFULL',
-                    fontSize: 64,
+                    fontSize: 32,
                     color: Colors.white,
-                  )),
-            )
-          ],
-        ),
+                  ),
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          RichText(
+            text: const TextSpan(
+                text: '-',
+                children: [
+                  TextSpan(
+                      text: 'CRACK',
+                      style: TextStyle(
+                        fontFamily: 'Story_Milky',
+                        color: Color(0xFFD95F59),
+                        fontSize: 32,
+                        wordSpacing: 67.39,
+                      )),
+                  TextSpan(
+                      text: 'THE',
+                      style: TextStyle(
+                        fontFamily: 'Story_Milky',
+                        color: Color(0xFFD95F59),
+                        fontSize: 20,
+                        wordSpacing: 42.12,
+                      )),
+                  TextSpan(
+                      text: 'CODE',
+                      style: TextStyle(
+                        fontFamily: 'Story_Milky',
+                        color: Color(0xFFD95F59),
+                        fontSize: 32,
+                        wordSpacing: 67.39,
+                      ))
+                ],
+                style: TextStyle(
+                  fontFamily: 'FLAWFULL',
+                  fontSize: 64,
+                  color: Colors.white,
+                )),
+          )
+        ],
       ),
     ));
   }

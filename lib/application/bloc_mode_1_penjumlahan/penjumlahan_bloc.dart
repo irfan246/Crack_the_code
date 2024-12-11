@@ -35,8 +35,7 @@ class PenjumlahanBlocMode1 extends Bloc<PenjumlahanEvent, PenjumlahanState> {
           updatedSelectedIndexes.map((index) => safe.numbers[index]).toList();
       final sum = selectedNumbers.reduce((a, b) => a + b);
 
-      if (sum == safe.targetSum &&
-          _isCorrectCombination(selectedNumbers, safe.correctNumbers)) {
+      if (sum == safe.targetSum) {
         safes[event.safeIndex] = safe.copyWith(
           isUnlocked: true,
           selectedIndexes: updatedSelectedIndexes,
@@ -60,11 +59,6 @@ class PenjumlahanBlocMode1 extends Bloc<PenjumlahanEvent, PenjumlahanState> {
     if (isAllSafesUnlocked) {
       emit(PenjumlahanWinState());
     }
-  }
-
-  static bool _isCorrectCombination(
-      List<int> selectedNumbers, List<int> correctNumbers) {
-    return Set.from(selectedNumbers).containsAll(correctNumbers);
   }
 
   static List<PenjumlahanSafeState> _generateInitialSafes() {

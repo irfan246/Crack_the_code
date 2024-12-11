@@ -260,6 +260,10 @@ class WidgetBrangkas extends StatelessWidget {
                   fontFamily: 'Story_Milky',
                   fontSize: 16,
                   color: Color(0xFF206430),
+                  shadows: [
+                    Shadow(color: Colors.white, offset: Offset(1, 0)),
+                    Shadow(color: Colors.white, offset: Offset(-1, 0)),
+                  ],
                 ),
               )),
           Positioned(
@@ -270,6 +274,10 @@ class WidgetBrangkas extends StatelessWidget {
                     fontFamily: 'Story_Milky',
                     fontSize: 16,
                     color: Color(0xFF206430),
+                    shadows: [
+                      Shadow(color: Colors.white, offset: Offset(1, 0)),
+                      Shadow(color: Colors.white, offset: Offset(-1, 0)),
+                    ],
                   ))),
         ],
       ));

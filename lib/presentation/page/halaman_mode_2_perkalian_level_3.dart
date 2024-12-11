@@ -24,7 +24,7 @@ class HalamanMode2PerkalianLevel3 extends StatelessWidget {
           final minutes = (remainingTime ~/ 60).toString().padLeft(2, '0');
           final seconds = (remainingTime % 60).toString().padLeft(2, '0');
           return Scaffold(
-            appBar: const WidgetAppbar(title: 'MODE 2'),
+            appBar: const WidgetAppbar(title: 'MODE 2 - LEVEL 3'),
             body: Stack(
               children: [
                 Positioned(
