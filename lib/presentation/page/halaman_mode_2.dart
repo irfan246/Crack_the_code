@@ -7,8 +7,12 @@ class HalamanMode2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: const WidgetAppbar(title: 'MODE 2'),
+      appBar: WidgetAppbar(
+        title: 'MODE 2',
+        preferredSizeHeight: screenHeight * 0.109,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -18,8 +22,8 @@ class HalamanMode2 extends StatelessWidget {
                 action: () {
                   Navigator.pushNamed(context, '/levelPenjumlahan');
                 }),
-            const SizedBox(
-              height: 40,
+            SizedBox(
+              height: screenHeight * 0.037843,
             ),
             ButtonHalamanMode(
                 buttonText: 'Perkalian',

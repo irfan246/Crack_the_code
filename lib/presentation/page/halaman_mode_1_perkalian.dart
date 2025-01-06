@@ -9,6 +9,8 @@ class HalamanMode1Perkalian extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return BlocConsumer<PerkalianBlocMode1, PerkalianState>(
       listener: (context, state) {
         if (state is PerkalianWinState) {
@@ -18,14 +20,17 @@ class HalamanMode1Perkalian extends StatelessWidget {
       builder: (context, state) {
         if (state is PerkalianLoadedState) {
           return Scaffold(
-              appBar: const WidgetAppbar(title: 'MODE 1'),
+              appBar: WidgetAppbar(
+                title: 'MODE 1',
+                preferredSizeHeight: screenHeight * 0.109,
+              ),
               body: Center(
                 child: SizedBox(
-                  width: 766,
-                  height: 644,
+                  width: screenWidth * 0.39895833,
+                  height: screenHeight * 0.61,
                   child: Wrap(
-                    spacing: 20,
-                    runSpacing: 20,
+                    spacing: screenWidth * 0.0104166,
+                    runSpacing: screenWidth * 0.0104166,
                     children: List.generate(4, (index) {
                       final safe = state.safes[index];
                       return WidgetBrangkas(

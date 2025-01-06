@@ -24,7 +24,7 @@ class PerkalianSafeState extends Equatable {
   final bool isUnlocked;
   final int targetSum;
 
-  PerkalianSafeState({
+  const PerkalianSafeState({
     required this.numbers,
     required this.correctNumbers,
     this.selectedIndexes = const [],

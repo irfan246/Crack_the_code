@@ -12,29 +12,37 @@ import '../../application/bloc_mode_2_level_3_perkalian/perkalian_bloc.dart';
 
 class WidgetAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
+  final double preferredSizeHeight;
 
   const WidgetAppbar({
     super.key,
     required this.title,
+    this.preferredSizeHeight = 144,
   });
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return AppBar(
       backgroundColor: const Color(0xFF8C3061),
       centerTitle: true,
       toolbarHeight: preferredSize.height,
       title: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           fontFamily: 'FLAWFULL',
-          fontSize: 90,
+          fontSize: screenWidth * 0.046875,
           color: Color(0xFFFE9994),
         ),
       ),
       leading: IconButton(
-        padding: const EdgeInsets.only(left: 25),
-        icon: const Image(image: AssetImage('assets/images/arrow_back.png')),
+        padding: EdgeInsets.only(left: screenWidth * 0.013022),
+        icon: Image(
+          image: AssetImage('assets/images/arrow_back.png'),
+          width: screenWidth * 0.0323,
+          height: screenHeight * 0.072,
+        ),
         onPressed: () {
           addEventToBloc<PenjumlahanBlocMode1>(
               context, penjumlahanMode1ResetEvent());
@@ -59,5 +67,5 @@ class WidgetAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(114);
+  Size get preferredSize => Size.fromHeight(preferredSizeHeight);
 }

@@ -7,8 +7,13 @@ class HalamanPilihMode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: const WidgetAppbar(title: 'PILIH MODE'),
+      appBar: WidgetAppbar(
+        title: 'PILIH MODE',
+        preferredSizeHeight: screenHeight * 0.109,
+      ),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -20,8 +25,8 @@ class HalamanPilihMode extends StatelessWidget {
                 Navigator.pushNamed(context, '/mode1');
               },
             ),
-            const SizedBox(
-              width: 80,
+            SizedBox(
+              width: screenWidth * 0.041666,
             ),
             ButtonPilihMode(
               ButtonTextMode: 'MODE 2',

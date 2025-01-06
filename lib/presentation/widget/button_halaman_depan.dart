@@ -9,28 +9,30 @@ class ButtonHalamanDepan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-          minimumSize: const Size(524, 99),
+          minimumSize: Size(screenWidth * 0.273, screenHeight * 0.09366),
           backgroundColor: const Color(0xFF8C3061),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(screenWidth * 0.014166),
           ),
-          shadowColor: Colors.black.withOpacity(1),
+          shadowColor: Colors.black.withAlpha(255),
           elevation: 10,
         ),
         onPressed: action,
         child: Text(
           buttonText,
-          style: const TextStyle(
+          style: TextStyle(
               fontFamily: 'FLAWFULL',
-              fontSize: 64,
+              fontSize: screenWidth * 0.0333,
               color: Colors.white,
               shadows: [
                 Shadow(
-                  offset: Offset(6, 6),
+                  offset: Offset(screenWidth * 0.003125, screenHeight * 0.0058),
                   blurRadius: 2,
-                  color: Color.fromARGB(88, 0, 0, 0),
+                  color: const Color.fromARGB(88, 0, 0, 0),
                 )
               ]),
         ));

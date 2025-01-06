@@ -10,6 +10,8 @@ class HalamanMode2PerkalianLevel3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return BlocConsumer<PerkalianBlocMode2Level3, PerkalianState>(
       listener: (context, state) {
         if (state is PerkalianWinState) {
@@ -24,26 +26,31 @@ class HalamanMode2PerkalianLevel3 extends StatelessWidget {
           final minutes = (remainingTime ~/ 60).toString().padLeft(2, '0');
           final seconds = (remainingTime % 60).toString().padLeft(2, '0');
           return Scaffold(
-            appBar: const WidgetAppbar(title: 'MODE 2 - LEVEL 3'),
+            appBar: WidgetAppbar(
+              title: 'MODE 2 - LEVEL 3',
+              preferredSizeHeight: screenHeight * 0.109,
+            ),
             body: Stack(
               children: [
                 Positioned(
-                  top: 10,
-                  left: 1700,
+                  top: screenHeight * 0.009460738,
+                  left: screenWidth * 0.82,
                   child: Material(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        side: const BorderSide(
-                            color: Color(0xFFFE9994), width: 1)),
+                        borderRadius:
+                            BorderRadius.circular(screenWidth * 0.0104166),
+                        side: BorderSide(
+                            color: Color(0xFFFE9994),
+                            width: screenWidth * 0.000520833)),
                     color: const Color(0xFF8C3061),
                     child: SizedBox(
-                      width: 150,
+                      width: screenWidth * 0.078125,
                       child: Text(
                         'WAKTU : $minutes : $seconds',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontFamily: 'FLAWFULL',
-                          fontSize: 20,
-                          color: Color(0xFFFE9994),
+                          fontSize: screenWidth * 0.0104166,
+                          color: const Color(0xFFFE9994),
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -52,11 +59,11 @@ class HalamanMode2PerkalianLevel3 extends StatelessWidget {
                 ),
                 Center(
                   child: SizedBox(
-                    width: 766,
+                    width: screenWidth * 0.39895833,
                     child: Wrap(
                       alignment: WrapAlignment.center,
-                      spacing: 20,
-                      runSpacing: 20,
+                      spacing: screenWidth * 0.0104166,
+                      runSpacing: screenHeight * 0.019,
                       children: List.generate(4, (index) {
                         final safe = state.safes[index];
                         return WidgetBrangkas(

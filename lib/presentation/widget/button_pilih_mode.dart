@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ButtonPilihMode extends StatelessWidget {
   final String ButtonTextMode;
   final String ButtonTextDifficulty;
-  final action;
+  final VoidCallback action;
 
   const ButtonPilihMode(
       {super.key,
@@ -13,13 +13,15 @@ class ButtonPilihMode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: const [
+        borderRadius: BorderRadius.circular(screenHeight * 0.004166),
+        boxShadow: [
           BoxShadow(
-            color: Color.fromARGB(59, 247, 181, 177),
-            offset: Offset(10, 10),
+            color: const Color.fromARGB(59, 247, 181, 177),
+            offset: Offset(screenWidth * 0.00522, screenHeight * 0.009463),
             blurRadius: 3.0,
           )
         ],
@@ -28,9 +30,9 @@ class ButtonPilihMode extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFFD95F59),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(screenWidth * 0.00625),
           ),
-          fixedSize: const Size(382, 316),
+          fixedSize: Size(screenWidth * 0.199, screenHeight * 0.299),
         ),
         onPressed: action,
         child: Column(
@@ -38,23 +40,23 @@ class ButtonPilihMode extends StatelessWidget {
           children: [
             Text(
               ButtonTextMode,
-              style: const TextStyle(
-                fontSize: 96,
+              style: TextStyle(
+                fontSize: screenWidth * 0.038,
                 fontFamily: 'FLAWFULL',
                 color: Colors.white,
                 shadows: [
                   Shadow(
                     blurRadius: 4.0,
-                    color: Color.fromARGB(88, 0, 0, 0),
-                    offset: Offset(4, 4),
+                    color: const Color.fromARGB(88, 0, 0, 0),
+                    offset: Offset(screenWidth * 0.0022, screenHeight * 0.0038),
                   ),
                 ],
               ),
             ),
             Text(
               ButtonTextDifficulty,
-              style: const TextStyle(
-                fontSize: 48,
+              style: TextStyle(
+                fontSize: screenWidth * 0.015,
                 fontFamily: 'FLAWFULL',
                 color: Colors.white,
               ),

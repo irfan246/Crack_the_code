@@ -14,49 +14,61 @@ class HalamanGagal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 480,
-              width: 582,
+            SizedBox(
+              height: screenHeight * 0.45416,
+              width: screenWidth * 0.303125,
               child: Stack(
                 children: [
                   Center(
                     child: Image(
-                      image: AssetImage('assets/images/emote_gagal.png'),
+                      image: const AssetImage('assets/images/emote_gagal.png'),
+                      width: screenWidth * 0.35,
+                      height: screenHeight * 0.356425,
                     ),
                   ),
                   Positioned(
-                    top: 380,
-                    left: 225,
+                    top: screenHeight * 0.36,
+                    left: screenWidth * 0.1171875,
                     child: Text(
                       'YAHH',
                       style: TextStyle(
                         fontFamily: 'Story_Milky',
-                        fontSize: 48,
-                        color: Color(0xFF206430),
+                        fontSize: screenWidth * 0.025,
+                        color: const Color(0xFF206430),
                         shadows: [
-                          Shadow(color: Colors.white, offset: Offset(1, 0)),
-                          Shadow(color: Colors.white, offset: Offset(-1, 0)),
+                          Shadow(
+                              color: Colors.white,
+                              offset: Offset(screenWidth * 0.000522, 0)),
+                          Shadow(
+                              color: Colors.white,
+                              offset: Offset(screenWidth * -0.000522, 0)),
                         ],
                       ),
                     ),
                   ),
                   Positioned(
-                    top: 425,
-                    left: 125,
+                    top: screenHeight * 0.4022,
+                    left: screenWidth * 0.065104166,
                     child: Text(
                       'KAMU GAGAL..',
                       style: TextStyle(
                         fontFamily: 'Story_Milky',
-                        fontSize: 48,
-                        color: Color(0xFF206430),
+                        fontSize: screenWidth * 0.025,
+                        color: const Color(0xFF206430),
                         shadows: [
-                          Shadow(color: Colors.white, offset: Offset(1, 0)),
-                          Shadow(color: Colors.white, offset: Offset(-1, 0)),
+                          Shadow(
+                              color: Colors.white,
+                              offset: Offset(screenWidth * 0.000522, 0)),
+                          Shadow(
+                              color: Colors.white,
+                              offset: Offset(screenWidth * -0.000522, 0)),
                         ],
                       ),
                     ),
@@ -64,19 +76,19 @@ class HalamanGagal extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 40,
+            SizedBox(
+              height: screenHeight * 0.037843,
             ),
-            const SizedBox(
-              width: 1200,
-              height: 87,
+            SizedBox(
+              width: screenWidth * 0.625,
+              height: screenHeight * 0.0804165,
               child: Wrap(
                 children: [
                   Text(
                     "KEGAGALAN BUKAN AKHIR, MELAINKAN AWAL DARI PELAJARAN BARU. JANGAN TAKUT GAGAL, TAKUTLAH JIKA ANDA BERHENTI MENCOBA. KARENA JUSTRU, KEGAGALAN ADALAH LANGKAH MENUJU KESUKSESAN YANG LEBIH BESAR. SEMANGAT!!",
                     style: TextStyle(
                       fontFamily: 'FLAWFULL',
-                      fontSize: 32,
+                      fontSize: screenWidth * 0.01666,
                       color: Colors.white,
                     ),
                     textAlign: TextAlign.center,
@@ -84,41 +96,41 @@ class HalamanGagal extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 40,
+            SizedBox(
+              height: screenHeight * 0.037843,
             ),
             RichText(
-              text: const TextSpan(
+              text: TextSpan(
                   text: '-',
                   children: [
                     TextSpan(
                         text: 'CRACK',
                         style: TextStyle(
                           fontFamily: 'Story_Milky',
-                          color: Color(0xFFD95F59),
-                          fontSize: 32,
-                          wordSpacing: 67.39,
+                          color: const Color(0xFFD95F59),
+                          fontSize: screenWidth * 0.01666,
+                          wordSpacing: screenWidth * 0.0351,
                         )),
                     TextSpan(
                         text: 'THE',
                         style: TextStyle(
                           fontFamily: 'Story_Milky',
-                          color: Color(0xFFD95F59),
-                          fontSize: 20,
-                          wordSpacing: 42.12,
+                          color: const Color(0xFFD95F59),
+                          fontSize: screenWidth * 0.0104166,
+                          wordSpacing: screenWidth * 0.0219375,
                         )),
                     TextSpan(
                         text: 'CODE',
                         style: TextStyle(
                           fontFamily: 'Story_Milky',
-                          color: Color(0xFFD95F59),
-                          fontSize: 32,
-                          wordSpacing: 67.39,
+                          color: const Color(0xFFD95F59),
+                          fontSize: screenWidth * 0.01666,
+                          wordSpacing: screenWidth * 0.0351,
                         ))
                   ],
                   style: TextStyle(
                     fontFamily: 'FLAWFULL',
-                    fontSize: 64,
+                    fontSize: screenWidth * 0.03333,
                     color: Colors.white,
                   )),
             )
@@ -145,15 +157,15 @@ class HalamanGagal extends StatelessWidget {
                 context, PerkalianMode2Level3ResetEvent());
             Navigator.pushReplacementNamed(context, '/pilihMode');
           },
-          child: const Padding(
+          child: Padding(
             padding: EdgeInsets.only(
-              bottom: 10,
+              bottom: screenHeight * 0.009463,
             ),
             child: Text(
               'AYO COBA LAGI!!',
               style: TextStyle(
                 fontFamily: 'FLAWFULL',
-                fontSize: 24,
+                fontSize: screenWidth * 0.0125,
                 color: Colors.white,
               ),
             ),

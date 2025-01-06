@@ -2,45 +2,48 @@ import 'package:flutter/material.dart';
 
 class ButtonHalamanMode extends StatelessWidget {
   final String buttonText;
-  final action;
+  final VoidCallback action;
 
   const ButtonHalamanMode(
       {super.key, required this.buttonText, required this.action});
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: const [
+        borderRadius: BorderRadius.circular(screenWidth * 0.004166),
+        boxShadow: [
           BoxShadow(
-            color: Color.fromARGB(59, 247, 181, 177),
-            offset: Offset(7, 9),
+            color: const Color.fromARGB(59, 247, 181, 177),
+            offset: Offset(screenWidth * 0.003646, screenHeight * 0.00851466),
             blurRadius: 3.0,
           )
         ],
       ),
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            minimumSize: const Size(568, 116),
+            minimumSize: Size(screenWidth * 0.296, screenHeight * 0.1097),
             backgroundColor: const Color(0xFFD95F59),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(screenWidth * 0.0104166),
             ),
-            shadowColor: Colors.black.withOpacity(1),
+            shadowColor: Colors.black.withAlpha(255),
             elevation: 10,
           ),
           onPressed: action,
           child: Text(
             buttonText,
-            style: const TextStyle(
+            style: TextStyle(
                 fontFamily: 'FLAWFULL',
-                fontSize: 70,
+                fontSize: screenWidth * 0.03646,
                 color: Colors.white,
                 shadows: [
                   Shadow(
-                    offset: Offset(6, 6),
+                    offset:
+                        Offset(screenWidth * 0.003125, screenHeight * 0.0058),
                     blurRadius: 2,
-                    color: Color.fromARGB(88, 0, 0, 0),
+                    color: const Color.fromARGB(88, 0, 0, 0),
                   )
                 ]),
           )),

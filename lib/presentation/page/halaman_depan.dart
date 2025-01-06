@@ -6,6 +6,8 @@ class HalamanDepan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Center(
         child: Column(
@@ -13,27 +15,34 @@ class HalamanDepan extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             RichText(
-              text: const TextSpan(
+              text: TextSpan(
                   text: 'CRACK',
                   style: TextStyle(
                     fontFamily: 'Story_Milky',
-                    color: Color(0xFFD95F59),
-                    fontSize: 64,
-                    wordSpacing: 67.39,
+                    color: const Color(0xFFD95F59),
+                    fontSize: screenWidth * 0.033,
+                    wordSpacing: screenWidth * 0.0352,
                   ),
                   children: [
                     TextSpan(
                       text: 'The',
                       style: TextStyle(
-                        fontSize: 40,
-                        wordSpacing: 42.12,
+                        fontSize: screenWidth * 0.022,
+                        wordSpacing: screenWidth * 0.0104166,
                       ),
                     ),
-                    TextSpan(text: 'CODE'),
+                    TextSpan(
+                        text: 'CODE',
+                        style: TextStyle(
+                          fontFamily: 'Story_Milky',
+                          color: const Color(0xFFD95F59),
+                          fontSize: screenWidth * 0.033,
+                          wordSpacing: screenWidth * 0.0352,
+                        )),
                   ]),
             ),
-            const SizedBox(
-              height: 60,
+            SizedBox(
+              height: screenHeight * 0.05676,
             ),
             ButtonHalamanDepan(
               buttonText: 'MAINKAN',
@@ -41,8 +50,8 @@ class HalamanDepan extends StatelessWidget {
                 Navigator.pushNamed(context, '/pilihMode');
               },
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: screenHeight * 0.019,
             ),
             ButtonHalamanDepan(
               buttonText: 'CARA BERMAIN',

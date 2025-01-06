@@ -3,6 +3,7 @@ import 'package:crack_the_code/application/bloc_mode_2_level_2_penjumlahan.dart/
 import 'package:crack_the_code/application/bloc_mode_2_level_2_perkalian/perkalian_bloc.dart';
 import 'package:crack_the_code/application/bloc_mode_2_level_3_penjumlahan/penjumlahan_bloc.dart';
 import 'package:crack_the_code/application/bloc_mode_2_level_3_perkalian/perkalian_bloc.dart';
+import 'package:flutter/services.dart';
 
 import '../application/bloc_mode_1_perkalian/perkalian_bloc.dart';
 import '../application/bloc_mode_1_penjumlahan/penjumlahan_bloc.dart';
@@ -13,6 +14,10 @@ import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]);
   runApp(MultiBlocProvider(providers: [
     BlocProvider(
       create: (context) => PenjumlahanBlocMode1(),

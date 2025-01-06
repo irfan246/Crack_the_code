@@ -14,6 +14,8 @@ class HalamanBerhasil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     Future.delayed(
       const Duration(seconds: 5),
       () {
@@ -40,105 +42,115 @@ class HalamanBerhasil extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(
-            height: 480,
-            width: 582,
+          SizedBox(
+            height: screenHeight * 0.45411,
+            width: screenWidth * 0.303125,
             child: Stack(
               children: [
                 Center(
                   child: Image(
                     image: AssetImage('assets/images/emote_berhasil.png'),
+                    width: screenWidth * 0.2276,
+                    height: screenHeight * 0.345317,
                   ),
                 ),
                 Positioned(
-                  top: 380,
-                  left: 120,
+                  top: screenHeight * 0.35952,
+                  left: screenWidth * 0.0625,
                   child: Text(
                     'YEAY SELAMAT',
                     style: TextStyle(
                       fontFamily: 'Story_Milky',
-                      fontSize: 48,
-                      color: Color(0xFF206430),
+                      fontSize: screenWidth * 0.025,
+                      color: const Color(0xFF206430),
                       shadows: [
-                        Shadow(color: Colors.white, offset: Offset(1, 0)),
-                        Shadow(color: Colors.white, offset: Offset(-1, 0)),
+                        Shadow(
+                            color: Colors.white,
+                            offset: Offset(screenWidth * 0.000522, 0)),
+                        Shadow(
+                            color: Colors.white,
+                            offset: Offset(screenWidth * -0.000522, 0)),
                       ],
                     ),
                   ),
                 ),
                 Positioned(
-                  top: 425,
-                  left: 90,
+                  top: screenHeight * 0.4022,
+                  left: screenWidth * 0.046875,
                   child: Text(
                     'KAMU BERHASIL!!',
                     style: TextStyle(
                         fontFamily: 'Story_Milky',
-                        fontSize: 48,
-                        color: Color(0xFF206430),
+                        fontSize: screenWidth * 0.025,
+                        color: const Color(0xFF206430),
                         shadows: [
-                          Shadow(color: Colors.white, offset: Offset(1, 0)),
-                          Shadow(color: Colors.white, offset: Offset(-1, 0)),
+                          Shadow(
+                              color: Colors.white,
+                              offset: Offset(screenWidth * 0.000522, 0)),
+                          Shadow(
+                              color: Colors.white,
+                              offset: Offset(screenWidth * -0.000522, 0)),
                         ]),
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 40,
+          SizedBox(
+            height: screenHeight * 0.037843,
           ),
-          const SizedBox(
-            width: 791,
-            height: 93,
+          SizedBox(
+            width: screenWidth * 0.412,
+            height: screenHeight * 0.088,
             child: Wrap(
               children: [
                 Text(
                   "JANGAN MUDAH PUAS DENGAN KEBERHASILAN. KARNA MASIH ADA KEBERHASILAN-KEBERHASILAN LAIN YANG HARUS KALIAN RAIH. SEMANGAT!!",
                   style: TextStyle(
                     fontFamily: 'FLAWFULL',
-                    fontSize: 32,
-                    color: Colors.white,
+                    fontSize: screenWidth * 0.0166,
+                    color: const Color.fromARGB(255, 223, 216, 216),
                   ),
                   textAlign: TextAlign.center,
                 )
               ],
             ),
           ),
-          const SizedBox(
-            height: 25,
+          SizedBox(
+            height: screenHeight * 0.023653,
           ),
           RichText(
-            text: const TextSpan(
+            text: TextSpan(
                 text: '-',
                 children: [
                   TextSpan(
                       text: 'CRACK',
                       style: TextStyle(
                         fontFamily: 'Story_Milky',
-                        color: Color(0xFFD95F59),
-                        fontSize: 32,
-                        wordSpacing: 67.39,
+                        color: const Color(0xFFD95F59),
+                        fontSize: screenWidth * 0.0166,
+                        wordSpacing: screenWidth * 0.0352,
                       )),
                   TextSpan(
                       text: 'THE',
                       style: TextStyle(
                         fontFamily: 'Story_Milky',
-                        color: Color(0xFFD95F59),
-                        fontSize: 20,
-                        wordSpacing: 42.12,
+                        color: const Color(0xFFD95F59),
+                        fontSize: screenWidth * 0.0104166,
+                        wordSpacing: screenWidth * 0.0219375,
                       )),
                   TextSpan(
                       text: 'CODE',
                       style: TextStyle(
                         fontFamily: 'Story_Milky',
-                        color: Color(0xFFD95F59),
-                        fontSize: 32,
-                        wordSpacing: 67.39,
+                        color: const Color(0xFFD95F59),
+                        fontSize: screenWidth * 0.0166,
+                        wordSpacing: screenWidth * 0.0352,
                       ))
                 ],
                 style: TextStyle(
                   fontFamily: 'FLAWFULL',
-                  fontSize: 64,
+                  fontSize: screenWidth * 0.033,
                   color: Colors.white,
                 )),
           )

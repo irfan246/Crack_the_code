@@ -47,7 +47,7 @@ class PenjumlahanSafeState extends Equatable {
   final bool isUnlocked;
   final int targetSum;
 
-  PenjumlahanSafeState({
+  const PenjumlahanSafeState({
     required this.numbers,
     required this.correctNumbers,
     this.selectedIndexes = const [],

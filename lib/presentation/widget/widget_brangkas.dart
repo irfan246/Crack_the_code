@@ -21,166 +21,173 @@ class WidgetBrangkas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     if (!isUnlocked) {
       return SizedBox(
-        width: 352,
-        height: 320,
+        width: screenWidth * 0.1833,
+        height: screenHeight * 0.305,
         child: Stack(
           children: <Widget>[
             Positioned(
-              top: 303,
-              left: 70,
+              top: screenHeight * 0.2866,
+              left: screenWidth * 0.036457,
               child: SizedBox(
-                width: 30,
-                height: 17,
+                width: screenWidth * 0.015625,
+                height: screenHeight * 0.162,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(6)),
+                    borderRadius: BorderRadius.circular(screenWidth * 0.003125),
                     color: const Color.fromRGBO(255, 142, 143, 1),
                     border: Border.all(
                       color: const Color.fromRGBO(0, 0, 0, 1),
-                      width: 1,
+                      width: screenWidth * 0.000522,
                     ),
                   ),
                 ),
               ),
             ),
             Positioned(
-              top: 303,
-              left: 265,
+              top: screenHeight * 0.2866,
+              left: screenWidth * 0.138022,
               child: SizedBox(
-                width: 30,
-                height: 17,
+                width: screenWidth * 0.015625,
+                height: screenHeight * 0.162,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(6)),
+                    borderRadius: BorderRadius.circular(screenWidth * 0.003125),
                     color: const Color.fromRGBO(255, 142, 143, 1),
                     border: Border.all(
                       color: const Color.fromRGBO(0, 0, 0, 1),
-                      width: 1,
+                      width: screenWidth * 0.000522,
                     ),
                   ),
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               top: 0,
               left: 0,
               child: SizedBox(
-                width: 352,
-                height: 308,
+                width: screenWidth * 0.1833,
+                height: screenHeight * 0.2914,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(11)),
-                    color: Color.fromRGBO(255, 179, 142, 1),
+                    borderRadius: BorderRadius.circular(screenWidth * 0.00573),
+                    color: const Color.fromRGBO(255, 179, 142, 1),
                   ),
                 ),
               ),
             ),
             Positioned(
-              top: 15,
-              left: 14,
+              top: screenHeight * 0.0142,
+              left: screenWidth * 0.0073,
               child: SizedBox(
-                width: 324,
-                height: 281,
+                width: screenWidth * 0.16875,
+                height: screenHeight * 0.267,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(11)),
+                    borderRadius: BorderRadius.circular(screenWidth * 0.00573),
                     color: const Color.fromRGBO(255, 142, 143, 1),
                     border: Border.all(
                       color: const Color.fromRGBO(0, 0, 0, 1),
-                      width: 1,
+                      width: screenWidth * 0.000522,
                     ),
                   ),
                 ),
               ),
             ),
             Positioned(
-              top: 53,
-              left: 50,
+              top: screenHeight * 0.050142,
+              left: screenWidth * 0.026045,
               child: SizedBox(
-                width: 52,
-                height: 52,
+                width: screenWidth * 0.0272,
+                height: screenHeight * 0.0492,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: const Color.fromRGBO(255, 179, 142, 1),
                     border: Border.all(
                       color: const Color.fromRGBO(0, 0, 0, 1),
-                      width: 1,
+                      width: screenWidth * 0.000522,
                     ),
-                    borderRadius:
-                        const BorderRadius.all(Radius.elliptical(52, 52)),
+                    borderRadius: BorderRadius.all(Radius.elliptical(
+                        screenWidth * 0.0272, screenHeight * 0.0492)),
                   ),
                 ),
               ),
             ),
             Positioned(
-              top: 205,
-              left: 50,
+              top: screenHeight * 0.194,
+              left: screenWidth * 0.026045,
               child: Container(
-                width: 52,
-                height: 52,
+                width: screenWidth * 0.0272,
+                height: screenHeight * 0.0492,
                 decoration: BoxDecoration(
                   color: const Color.fromRGBO(255, 179, 142, 1),
                   border: Border.all(
                     color: const Color.fromRGBO(0, 0, 0, 1),
-                    width: 1,
+                    width: screenWidth * 0.000522,
                   ),
-                  borderRadius:
-                      const BorderRadius.all(Radius.elliptical(52, 52)),
+                  borderRadius: BorderRadius.all(Radius.elliptical(
+                      screenWidth * 0.0272, screenHeight * 0.0492)),
                 ),
               ),
             ),
             Positioned(
-              top: 70,
-              left: 60,
+              top: screenHeight * 0.06627,
+              left: screenWidth * 0.03125,
               child: Container(
-                width: 30,
-                height: 169,
+                width: screenWidth * 0.015625,
+                height: screenHeight * 0.16,
                 decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(14)),
-                  boxShadow: const [
+                  borderRadius: BorderRadius.circular(screenWidth * 0.0073),
+                  boxShadow: [
                     BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.25),
-                      offset: Offset(0, 3),
+                      color: const Color.fromRGBO(0, 0, 0, 0.25),
+                      offset: Offset(0, screenHeight * 0.00285),
                       blurRadius: 3,
                     )
                   ],
                   color: const Color.fromRGBO(255, 179, 142, 1),
                   border: Border.all(
                     color: const Color.fromRGBO(0, 0, 0, 1),
-                    width: 1,
+                    width: screenWidth * 0.000522,
                   ),
                 ),
               ),
             ),
             Positioned(
-              left: 165,
-              top: 23,
+              left: screenWidth * 0.0859375,
+              top: screenHeight * 0.02176,
               child: SizedBox(
-                width: 95,
-                height: 30,
+                width: screenWidth * 0.04948,
+                height: screenHeight * 0.031,
                 child: DecoratedBox(
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFFFB38E),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFFB38E),
+                    borderRadius: BorderRadius.circular(screenWidth * 0.00522),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black26,
-                        offset: Offset(3, 3),
+                        offset: Offset(
+                            screenWidth * 0.0015625, screenHeight * 0.00285),
                         blurRadius: 4,
                       )
                     ],
                     border: Border.fromBorderSide(
-                      BorderSide(color: Colors.black, width: 1),
+                      BorderSide(
+                        color: Colors.black,
+                        width: screenWidth * 0.000522,
+                      ),
                     ),
                   ),
                   child: Center(
                     child: Text(
                       safe.targetSum.toString(), // Set the correct target sum
-                      style: const TextStyle(
-                        fontSize: 24,
-                        color: Color(0xFF8C3061),
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.0125,
+                        color: const Color(0xFF8C3061),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -189,11 +196,11 @@ class WidgetBrangkas extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 60,
-              left: 120,
+              top: screenHeight * 0.058,
+              left: screenWidth * 0.0625,
               child: SizedBox(
-                width: 200,
-                height: 200,
+                width: screenWidth * 0.1045,
+                height: screenHeight * 0.19,
                 child: Stack(
                   children: [
                     const Positioned.fill(
@@ -204,14 +211,13 @@ class WidgetBrangkas extends StatelessWidget {
                       ),
                     ),
                     GridView.builder(
-                      padding: const EdgeInsets.all(8),
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: EdgeInsets.all(screenWidth * 0.004166),
                       itemCount: buttonNumbers.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 6,
-                        mainAxisSpacing: 6,
-                      ),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          crossAxisSpacing: screenWidth * 0.003125,
+                          mainAxisSpacing: screenHeight * 0.0058),
                       itemBuilder: (context, index) {
                         final number = buttonNumbers[index];
                         final isSelected = selectedNumbers.contains(index);
@@ -234,50 +240,42 @@ class WidgetBrangkas extends StatelessWidget {
         ),
       );
     } else {
-      return const SafeArea(
+      return SafeArea(
           child: Stack(
         children: [
           Positioned(
               child: Image(
-            image: AssetImage('assets/images/brangkas_terbuka.png'),
-            width: 352,
-            height: 320,
+            image: const AssetImage('assets/images/brangkas_terbuka.png'),
+            width: screenWidth * 0.1833,
+            height: screenHeight * 0.305,
           )),
           Positioned(
-              left: 157,
-              top: 100,
+              left: screenWidth * 0.083,
+              top: screenWidth * 0.05463,
               child: Image(
-                image: AssetImage('assets/images/emote_berhasil.png'),
-                width: 126,
-                height: 123,
+                image: const AssetImage('assets/images/emote_berhasil.png'),
+                width: screenWidth * 0.065625,
+                height: screenHeight * 0.1166,
               )),
           Positioned(
-              top: 200,
-              left: 165,
+              top: screenHeight * 0.18,
+              left: screenWidth * 0.0859375,
               child: Text(
                 'YEAY SELAMAT',
                 style: TextStyle(
                   fontFamily: 'Story_Milky',
-                  fontSize: 16,
-                  color: Color(0xFF206430),
-                  shadows: [
-                    Shadow(color: Colors.white, offset: Offset(1, 0)),
-                    Shadow(color: Colors.white, offset: Offset(-1, 0)),
-                  ],
+                  fontSize: screenWidth * 0.00833,
+                  color: const Color(0xFF206430),
                 ),
               )),
           Positioned(
-              top: 220,
-              left: 155,
+              top: screenHeight * 0.20,
+              left: screenWidth * 0.08073,
               child: Text('KAMU BERHASIL!!',
                   style: TextStyle(
                     fontFamily: 'Story_Milky',
-                    fontSize: 16,
-                    color: Color(0xFF206430),
-                    shadows: [
-                      Shadow(color: Colors.white, offset: Offset(1, 0)),
-                      Shadow(color: Colors.white, offset: Offset(-1, 0)),
-                    ],
+                    fontSize: screenWidth * 0.00833,
+                    color: const Color(0xFF206430),
                   ))),
         ],
       ));
